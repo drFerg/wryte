@@ -31,6 +31,7 @@ specifiers:
   vite: ^4.0.0
   vite-imagetools: ^4.0.14
   vitest: ^0.25.3
+  web-vitals: ^3.1.1
 
 dependencies:
   '@sveltejs/adapter-static': 1.0.0_@sveltejs+kit@1.0.1
@@ -65,6 +66,7 @@ devDependencies:
   vite: 4.0.3
   vite-imagetools: 4.0.14
   vitest: 0.25.8
+  web-vitals: 3.1.1
 
 packages:
 
@@ -2912,6 +2914,10 @@ packages:
 
   /w3c-keyname/2.2.6:
     resolution: {integrity: sha512-f+fciywl1SJEniZHD6H+kUO8gOnwIr7f4ijKA6+ZvJFjeGi1r4PDLl53Ayud9O/rk64RqgoQine0feoeOU0kXg==}
+    dev: true
+
+  /web-vitals/3.1.1:
+    resolution: {integrity: sha512-qvllU+ZeQChqzBhZ1oyXmWsjJ8a2jHYpH8AMaVuf29yscOPZfTQTjQFRX6+eADTdsDE8IanOZ0cetweHMs8/2A==}
     dev: true
 
   /which/2.0.2:

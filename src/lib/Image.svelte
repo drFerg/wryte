@@ -3,7 +3,6 @@
 
 	export let src: Picture | Promise<Picture>;
 	export let alt: string;
-	console.log(src)
 
 	$: img = async () => await Promise.resolve(src);
 </script>
