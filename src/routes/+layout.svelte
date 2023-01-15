@@ -1,12 +1,13 @@
 <script>
   import { page } from "$app/stores";
-  import "../app.css";
   import avatar from "./avatar.png";
-  const routes = ["About", "Posts", "Speaking"].map(label => ({label, path: "/" + label.toLowerCase().replaceAll(" ", "-")}));
-    import { quintOut } from 'svelte/easing';
+  import { quintOut } from 'svelte/easing';
   import { crossfade } from 'svelte/transition';
+	import Analytics from "$lib/Analytics.svelte";
 	import Image from "$lib/Image.svelte";
+  import "../app.css";
 
+  const routes = ["About", "Posts", "Speaking"].map(label => ({label, path: "/" + label.toLowerCase().replaceAll(" ", "-")}));
   const [send, receive] = crossfade({
     duration: d => Math.sqrt(d * 200),
 
@@ -26,6 +27,7 @@
   });
 </script>
 
+<Analytics />
 <div class="fixed inset-0 flex justify-center sm:px-8">
   <div class="flex w-full max-w-7xl lg:px-8">
     <div class="w-full bg-white ring-1 ring-zinc-100 dark:bg-zinc-900 dark:ring-zinc-300/20"></div>
