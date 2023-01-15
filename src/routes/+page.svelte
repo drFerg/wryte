@@ -21,7 +21,7 @@
       };
     }
   });
-  const getBio = (async () => ({
+  const bio = {
       blurb:
         "I’m Fergus Leahy, aka Dr. Ferg, a senior software engineer based in east London. I’m one of the founding engineers at Outverse, where we're crafting the next generation of tools for building the best communities. Outside of work, you'll find me climbing and scoffing pastries at Pavilion.",
       avatar: avatar,
@@ -35,7 +35,7 @@
         {
           company: 'Outverse',
           url: 'outverse.com',
-          img: await import('$assets/outverse.jpeg'),
+          img: import('$assets/outverse.jpeg'),
           title: 'Senior Full-stack Engineer',
           from: '2022',
           to: 'Present'
@@ -43,7 +43,7 @@
         {
           company: 'Tab',
           url: 'tab.travel',
-          img: await import('$assets/tab.jpeg'),
+          img: import('$assets/tab.jpeg'),
           title: 'Senior Full-stack Engineer',
           from: '2018',
           to: '2022'
@@ -51,22 +51,21 @@
       ],
       gallery: [
         {
-          img: await import('$assets/DSC08435.jpg'),
+          img: import('$assets/DSC08435.jpg'),
           alt: 'Something pretty'
         },
         {
-          img: await import('$assets/IMG_3132.jpeg'),
+          img: import('$assets/IMG_3132.jpeg'),
           alt: 'something pretty'
         },
-        { img: await import('$assets/IMG_4329.jpeg'), alt: '' },
-        { img: await import('$assets/PXL_20221124_194958306.jpg'), alt: '' },
-        { img: await import('$assets/IMG_4693.jpeg'), alt: '' }
+        { img: import('$assets/IMG_4329.jpeg'), alt: '' },
+        { img: import('$assets/PXL_20221124_194958306.jpg'), alt: '' },
+        { img: import('$assets/IMG_4693.jpeg'), alt: '' }
       ]
-    }))();
+    };
 
 </script>
 
-{#await getBio then bio}
 <header
   class="pointer-events-none relative z-50 flex flex-col"
   style="height: var(--header-height); margin-bottom: var(--header-mb)"
@@ -483,4 +482,3 @@
     </div>
   </div>
 </main>
-{/await}

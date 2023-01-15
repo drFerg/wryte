@@ -1,14 +1,18 @@
 <script lang="ts">
 	import type { Picture } from "vite-imagetools";
 
-	export let src: Picture;
+	export let src: Picture | Promise<Picture>;
 	export let alt: string;
 	console.log(src)
+
+	$: img = async () => await Promise.resolve(src);
 </script>
 
-<picture >
-	{#each Object.entries(src.sources) as [format, images]}
-		<source {...$$restProps} srcset={images.map((i) => `${i.src}`).join(', ')} type={'image/' + format} /> 
-	{/each}
-	<img {...$$restProps} src={src.fallback.src} {alt} />
-</picture>
+{#await img() then image}
+	<picture >
+		{#each Object.entries(image.sources) as [format, images]}
+			<source {...$$restProps} srcset={images.map((i) => `${i.src}`).join(', ')} type={'image/' + format} /> 
+		{/each}
+		<img {...$$restProps} src={image.fallback.src} {alt} />
+	</picture>
+{/await}
