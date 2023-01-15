@@ -1,3 +1,8 @@
+<script>
+
+	import Image from "$lib/Image.svelte";
+
+</script>
 <main>
   <div class="sm:px-8 mt-16 sm:mt-32">
     <div class="mx-auto max-w-7xl lg:px-8">
@@ -6,9 +11,9 @@
           <div class="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12">
             <div class="lg:pl-20">
               <div class="max-w-xs px-2.5 lg:max-w-none">
-                <img
+                <Image
                   alt=""
-                  src="/media/PXL_20221124_200104492_2.jpg"
+                  src="$assets/PXL_20221124_200104492_2.jpg"
                   width="800"
                   height="800"
                   decoding="async"

@@ -2,6 +2,7 @@
   import avatar from './avatar.png';
     import { quintOut } from 'svelte/easing';
   import { crossfade } from 'svelte/transition';
+	import Image from '$lib/Image.svelte';
 
   const [send, receive] = crossfade({
     duration: d => Math.sqrt(d * 200),
@@ -20,56 +21,57 @@
       };
     }
   });
-  const bio = {
-    blurb:
-      "I’m Fergus Leahy, aka Dr. Ferg, a senior software engineer based in east London. I’m one of the founding engineers at Outverse, where we're crafting the next generation of tools for building the best communities. Outside of work, you'll find me climbing and scoffing pastries at Pavilion.",
-    avatar: avatar,
-    handles: {
-      linkedin: '',
-      github: 'drFerg',
-      twitter: 'dr_ferg_',
-      instagram: ''
-    },
-    jobs: [
-      {
-        company: 'Outverse',
-        url: 'outverse.com',
-        img: '/media/outverse.jpeg',
-        title: 'Senior Full-stack Engineer',
-        from: '2022',
-        to: 'Present'
+  const getBio = (async () => ({
+      blurb:
+        "I’m Fergus Leahy, aka Dr. Ferg, a senior software engineer based in east London. I’m one of the founding engineers at Outverse, where we're crafting the next generation of tools for building the best communities. Outside of work, you'll find me climbing and scoffing pastries at Pavilion.",
+      avatar: avatar,
+      handles: {
+        linkedin: '',
+        github: 'drFerg',
+        twitter: 'dr_ferg_',
+        instagram: ''
       },
-      {
-        company: 'Tab',
-        url: 'tab.travel',
-        img: '/media/tab.jpeg',
-        title: 'Senior Full-stack Engineer',
-        from: '2018',
-        to: '2022'
-      }
-    ],
-    gallery: [
-      {
-        img: '/media/DSC08435.JPG',
-        alt: 'Something pretty'
-      },
-      {
-        img: '/media/IMG_3132.jpeg',
-        alt: 'something pretty'
-      },
-      { img: '/media/IMG_4329.jpeg', alt: '' },
-      { img: '/media/PXL_20221124_194958306.jpg', alt: '' },
-      { img: '/media/IMG_4693.jpeg', alt: '' }
-    ]
-  };
+      jobs: [
+        {
+          company: 'Outverse',
+          url: 'outverse.com',
+          img: await import('$assets/outverse.jpeg'),
+          title: 'Senior Full-stack Engineer',
+          from: '2022',
+          to: 'Present'
+        },
+        {
+          company: 'Tab',
+          url: 'tab.travel',
+          img: await import('$assets/tab.jpeg'),
+          title: 'Senior Full-stack Engineer',
+          from: '2018',
+          to: '2022'
+        }
+      ],
+      gallery: [
+        {
+          img: await import('$assets/DSC08435.jpg'),
+          alt: 'Something pretty'
+        },
+        {
+          img: await import('$assets/IMG_3132.jpeg'),
+          alt: 'something pretty'
+        },
+        { img: await import('$assets/IMG_4329.jpeg'), alt: '' },
+        { img: await import('$assets/PXL_20221124_194958306.jpg'), alt: '' },
+        { img: await import('$assets/IMG_4693.jpeg'), alt: '' }
+      ]
+    }))();
+
 </script>
 
+{#await getBio then bio}
 <header
   class="pointer-events-none relative z-50 flex flex-col"
   style="height: var(--header-height); margin-bottom: var(--header-mb)"
 >
   <div class="order-last mt-[calc(theme(spacing.16)-theme(spacing.3))]"></div>
-
   <div class="sm:px-8 top-0 order-last -mb-3 pt-3" style="position: sticky;">
     <div class="mx-auto max-w-7xl lg:px-8">
       <div class="relative px-4 sm:px-8 lg:px-12">
@@ -94,9 +96,9 @@
                 href="/"
                 style="transform: var(--avatar-image-transform)"
               >
-                <img
-                  in:receive={{key: "headerAvatar"}}
-                  out:send={{key: "headerAvatar"}}
+                 <!--  in:receive={{key: "headerAvatar"}}
+                  out:send={{key: "headerAvatar"}} -->
+                <Image
                   alt=""
                   sizes="4rem"
                   src="{bio.avatar}"
@@ -217,7 +219,7 @@
       <div
         class="relative aspect-[9/10] w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl rotate-2"
       >
-        <img
+        <Image
           alt="{image.alt}"
           sizes="(min-width: 640px) 18rem, 11rem"
           src="{image.img}"
@@ -423,7 +425,7 @@
                     <div
                       class="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0"
                     >
-                      <img
+                      <Image
                         alt=""
                         src="{job.img}"
                         width="32"
@@ -481,3 +483,4 @@
     </div>
   </div>
 </main>
+{/await}

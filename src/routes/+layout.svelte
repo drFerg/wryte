@@ -5,6 +5,7 @@
   const routes = ["About", "Posts", "Speaking"].map(label => ({label, path: "/" + label.toLowerCase().replaceAll(" ", "-")}));
     import { quintOut } from 'svelte/easing';
   import { crossfade } from 'svelte/transition';
+	import Image from "$lib/Image.svelte";
 
   const [send, receive] = crossfade({
     duration: d => Math.sqrt(d * 200),
@@ -53,7 +54,7 @@
                     out:send={{key: "headerAvatar"}}
                   >
                     <a aria-label="Home" class="pointer-events-auto" href="/"
-                      ><img
+                      ><Image
 
                         alt=""
                         sizes="2.25rem"
