@@ -94,9 +94,10 @@
                 class="block h-16 w-16 origin-left pointer-events-auto"
                 href="/"
                 style="transform: var(--avatar-image-transform)"
+                in:receive={{key: "headerAvatar"}}
+                out:send={{key: "headerAvatar"}}
               >
-                 <!--  in:receive={{key: "headerAvatar"}}
-                  out:send={{key: "headerAvatar"}} -->
+                 
                 <Image
                   alt=""
                   src="{bio.avatar}"
