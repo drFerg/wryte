@@ -27,6 +27,9 @@
   });
 </script>
 
+<svelte:head>
+  <title>Hi, I'm drFerg!👋</title>
+</svelte:head>
 <Analytics />
 
 <div class="fixed inset-0 flex justify-center sm:px-8">
