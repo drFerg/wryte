@@ -10,7 +10,7 @@
 {#await img() then image}
 	<picture >
 		{#each Object.entries(image.sources) as [format, images]}
-			<source {...$$restProps} srcset={images.map((i) => `${i.src}`).join(', ')} type={'image/' + format} /> 
+			<source {...$$restProps} srcset={images.map((i) => `${i.src} ${i.w}w`).join(', ')} type={'image/' + format} /> 
 		{/each}
 		<img {...$$restProps} src={image.fallback.src} {alt} />
 	</picture>

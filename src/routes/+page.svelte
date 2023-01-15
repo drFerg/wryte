@@ -99,10 +99,8 @@
                   out:send={{key: "headerAvatar"}} -->
                 <Image
                   alt=""
-                  sizes="4rem"
                   src="{bio.avatar}"
-                  width="512"
-                  height="512"
+                  sizes="300px"
                   decoding="async"
                   class="rounded-full bg-zinc-100 object-cover dark:bg-zinc-800 h-16 w-16"
                   style="color: transparent"
@@ -220,10 +218,8 @@
       >
         <Image
           alt="{image.alt}"
-          sizes="(min-width: 640px) 18rem, 11rem"
+          sizes="(max-width: 640px) 300px, 700px"
           src="{image.img}"
-          width="3744"
-          height="5616"
           decoding="async"
           data-nimg="1"
           class="absolute inset-0 h-full w-full object-cover"
@@ -427,8 +423,7 @@
                       <Image
                         alt=""
                         src="{job.img}"
-                        width="32"
-                        height="32"
+                        sizes="300px"
                         class="h-7 w-7 rounded-lg"
                         loading="lazy"
                         style="color: transparent"

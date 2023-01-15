@@ -28,6 +28,7 @@
 </script>
 
 <Analytics />
+
 <div class="fixed inset-0 flex justify-center sm:px-8">
   <div class="flex w-full max-w-7xl lg:px-8">
     <div class="w-full bg-white ring-1 ring-zinc-100 dark:bg-zinc-900 dark:ring-zinc-300/20"></div>
@@ -71,6 +72,7 @@
                   </div>
                 {/if}
                 </div>
+
                 <div class="flex flex-1 justify-end md:justify-center">
                   <div class="pointer-events-auto md:hidden" data-headlessui-state="">
                     <button
@@ -95,6 +97,7 @@
                       </svg>
                     </button>
                   </div>
+
                   <nav class="pointer-events-auto hidden md:block">
                     <ul
                       class="flex rounded-full bg-white/90 px-3 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10"
